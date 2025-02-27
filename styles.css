@@ -221,13 +221,13 @@ nav ul li a:hover::after {
     text-decoration: none;
     width: 100%;
     z-index: 2;
-  }
+}
   
-  .bn31:hover {
+.bn31:hover {
     color: #0b0b0c;
-  }
+}
   
-  .bn31 .bn31span {
+.bn31 .bn31span {
     align-items: center;
     background: #0e0e10;
     border-radius: 40px;
@@ -236,12 +236,29 @@ nav ul li a:hover::after {
     height: 100%;
     transition: background 0.5s ease;
     width: 100%;
-  }
+}
   
   .bn31:hover .bn31span {
     background: transparent;
-  }
+}
 
+.button-container {
+    display: flex;
+    gap: 15px; /* Space between buttons */
+    margin-top: 20px; /* Adjust as needed */
+}
+
+.button-container .bn31 {
+    flex: 1; /* Make buttons equal width */
+    text-align: center;
+}
+
+/* Ensure buttons stack on smaller screens */
+@media (max-width: 600px) {
+    .button-container {
+        flex-direction: column;
+    }
+}
 .counter-wrapper {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
