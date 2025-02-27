@@ -583,6 +583,9 @@ body, html {
 .project-card:nth-child(19) {
     animation-delay: 3.6s;
 }
+.project-card:nth-child(20) {
+    animation-delay: 3.8s;
+}
 
 /*Other Animations*/
 /* Animation Styles */
