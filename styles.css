@@ -1,827 +1,227 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&display=swap');
-body {
-    font-family: "Orbitron", sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #0b0b0c;
-    color: #00ff00; /* Green text */
-}
-
-/* Make scrollbar transparent */
-body::-webkit-scrollbar {
-    width: 10px; /* Width of the scrollbar */
-}
-
-body::-webkit-scrollbar-track {
-    background: transparent; /* Transparent background */
-}
-
-body::-webkit-scrollbar-thumb {
-    background: transparent; /* Transparent thumb */
-}
-
-.container {
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px 0;
-    padding-bottom: 5px;
-    position: fixed;
-    z-index: 1000;
-    top: 0; /* Align to the top of the viewport */
-    width: 100%;
-}
-    
-header .container {
-    display: flex;
-    justify-content: space-between;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    backdrop-filter: blur(5px); /* Apply blur effect */
-    align-items: center;
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-header h1 {
-    margin: 0;
-    color: #00FF00;
-    text-transform: uppercase;
-}
-
-/* Navigation styles */
-nav {
-    position: relative;
-}
-
-nav ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin-right: 20px;
-}
-
-nav ul li a {
-    color: #00FF00; /* Green links */
-    text-decoration: none;
-    position: relative;
-    padding: 5px 0;
-}
-
-nav ul li a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    display: block;
-    margin-top: 5px;
-    right: 0;
-    background: #00FF00; /* Green underline */
-    transition: width 0.4s ease, right 0.4s ease;
-}
-
-nav ul li a:hover::after {
-    width: 100%;
-    right: 0;
-}
-
-/* Styles for mobile menu toggle button */
-.mobile-menu-toggle {
-    display: block; /* Display the toggle button */
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 20px;
-    cursor: pointer;
-    z-index: 1001;
-}
-
-.bar {
-    width: 30px;
-    height: 3px;
-    background-color: #0b0b0c;
-    margin: 6px 0;
-    transition: 0.4s; /* Add transition for smooth animation */
-}
-
-
-/* Change to "X" shape when menu is active */
-.active .bar:nth-child(1) {
-    transform: rotate(-45deg) translate(-5px, 6px);
-}
-
-.active .bar:nth-child(2) {
-    opacity: 0;
-}
-
-.active .bar:nth-child(3) {
-    transform: rotate(45deg) translate(-5px, -6px);
-}
-
-.mobile-menu-toggle .bar {
-    width: 25px;
-    height: 3px;
-    background-color: #00FF00;
-    margin: 5px 0;
-}
-
-/* Styles for mobile menu toggle button */
-.mobile-menu-toggle {
-    display: none; /* Hide by default */
-}
-
-/* Media query for mobile devices */
-@media (max-width: 768px) {
-    .mobile-menu-toggle {
-        display: block; /* Display on mobile devices */
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        right: 20px;
-        cursor: pointer;
-        z-index: 1001;
-    }
-
-    .mobile-menu {
-        display: none; /* Hide the mobile menu by default */
-        position: absolute;
-        top: 100%;
-        right: 0;
-        background-color: rgba(0, 0, 0, 0.765); /* Semi-transparent background */
-        backdrop-filter: blur(5px); /* Apply blur effect */
-        width: 100%;
-    }
-
-    .mobile-menu.active {
-        display: block; /* Show the mobile menu when active */
-    }
-
-    .mobile-menu ul {
-        list-style-type: none;
-        padding: 0;
-        display: flex; /* Display list items in a column */
-        flex-direction: column; /* Display list items vertically */
-    }
-
-    .mobile-menu ul li {
-        margin: 10px 0;
-    }
-
-    .mobile-menu ul li a {
-        color: #00FF00;
-        text-decoration: none;
-        padding: 10px 0;
-    }
-}
-
-.section {
-    padding: 40px 0;
-    opacity: 0;
-}
-
-.about-content {
-    display: flex;
-    align-items: center;
-    margin-top: 70px;
-}
-
-.about-image {
-    flex: 1;
-}
-
-.about-image img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 50%;
-}
-
-.about-text {
-    flex: 2;
-}
-
-.bn31 {
-    background-image: linear-gradient(to right, #00FF00 0%, #00FF00 100%);
-    border-radius: 40px;
-    box-sizing: border-box;
-    color: #00FF00;
-    display: block;
-    height: 50px;
-    font-size: 1.4em;
-    padding: 4px;
-    position: relative;
-    text-decoration: none;
-    width: 100%;
-    z-index: 2;
-}
-  
-.bn31:hover {
-    color: #0b0b0c;
-}
-  
-.bn31 .bn31span {
-    align-items: center;
-    background: #0e0e10;
-    border-radius: 40px;
-    display: flex;
-    justify-content: center;
-    height: 100%;
-    transition: background 0.5s ease;
-    width: 100%;
-}
-  
-  .bn31:hover .bn31span {
-    background: transparent;
-}
-
-.button-container {
-    display: flex;
-    gap: 15px; /* Space between buttons */
-    margin-top: 20px; /* Adjust as needed */
-}
-
-.button-container .bn31 {
-    flex: 1; /* Make buttons equal width */
-    text-align: center;
-}
-
-/* Ensure buttons stack on smaller screens */
-@media (max-width: 600px) {
-    .button-container {
-        flex-direction: column;
-    }
-}
-.counter-wrapper {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    padding: 10px 10px;
-    margin-top: -100px;
-    margin-bottom: -100px;
-    position: relative;
-}
-
-.counter {
-    text-align: center;
-    position: relative;
-    margin-bottom: 0.5rem;
-}
-
-.counter .count {
-    font-size: 5rem;
-    margin-bottom: -15px;
-}
-
-.counter p {
-    font-size: 1.4rem;
-    font-weight: 700;
-}
-@media (max-width: 768px) {
-    .counter .count {
-        font-size: 3.5rem;
-    }
-
-    .counter p {
-        font-size: 1rem;
-    }
-}
-@media (max-width: 365px) {
-    .counter .count {
-        font-size: 3rem;
-    }
-
-    .counter p {
-        font-size: 0.8rem;
-    }
-}
-
-.service {
-    background-color: #0b0b0c; /* Black service background */
-    padding: 20px;
-    margin-bottom: 20px;
-}
-
-.service h3 {
-    margin-top: 0;
-    color: #00FF00; /* Green text */
-}
-
-.service p {
-    margin-bottom: 15px;
-}
-
-#services h2 {
-    text-align: center;
-}
-
-.cta-button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #00FF00; /* Green button */
-    color: #0b0b0c; /* Black button text */
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-    width: 95%;
-}
-
-.cta-button:hover {
-    background-color: #007F00; /* Darker green on hover */
-}
-
-footer {
-    background-color: transparent;
-    padding: 20px 0;
-    text-align: center;
-}
-
-/* Media query for mobile view */
-@media only screen and (max-width: 768px) {
-    .about-content {
-        flex-direction: column; /* Stack items vertically */
-        text-align: center;
-    }
-
-    .about-image,
-    .about-text {
-        flex: none; /* Reset flex property to its initial value */
-    }
-
-    .about-image {
-        margin-bottom: 20px; /* Add some spacing between the image and text */
-    }
-
-    .bn31 {
-        margin: 0 auto; /* Center horizontally */
-        display: block; /* Ensure it takes up the full width */
-    }
-}
-
-/*Top Projects Section*/
-.project-card {
-    background-color: #0b0b0c;
-    border-radius: 10px;
-    padding: 20px;
-    margin-top: 20px;
-    text-align: center; /* Center align the contents */
-    opacity: 0; /* Initial state for animation */
-}
-
-.project-card h3 {
-    margin-bottom: 10px;
-    display: block;
-    font-size: 1.17em;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    font-weight: bold;
-    unicode-bidi: isolate;
-}
-
-
-.project-card p {
-    margin-bottom: 10px;
-}
-
-.project-card img {
-    height: 100px;
-    width: 100px;
-}
-
-.project-card a {
-    width: 90%;
-    padding: 10px 10px;
-    display: inline-block;
-    align-items: center;
-}
-
-.projects {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px; /* Add spacing between project cards */
-}
-
-/* Media query for mobile view */
-@media only screen and (max-width: 768px) {
-    .projects {
-        grid-template-columns: repeat(1, 1fr);
-    }
-    .intro-section {
-        margin-top: 70px; /* Adjust the value as needed */
-    }
-}
-
-/*Other Stores styling*/
-.other-stores {
-    margin-top: -20px;
-}
-
-/*Store Icons styling*/
-.store-icons img {
-    width: 40px; /* Adjust size as needed */
-    height: 40px; /* Adjust size as needed */
-}
-
-.store-icons a {
-    margin: 0 10px;
-    display: inline-block;
-    transition: transform 0.3s ease;
-}
-
-.store-icons a:hover {
-    transform: scale(1.2);
-}
-
-/* Contact styling */
-.social-icons img {
-    width: 40px; /* Adjust size as needed */
-    height: 40px; /* Adjust size as needed */
-}
-
-.social-icons a {
-    margin: 0 10px;
-    display: inline-block;
-    transition: transform 0.3s ease;
-}
-
-.social-icons a:hover {
-    transform: scale(1.2);
-}
-
-.service img {
-    width: 100px; /* Adjust the width to your preference */
-    height: auto; /* Maintain aspect ratio */
-    display: block; /* Ensure the image is displayed as a block element */
-    margin: 0 auto 10px; /* Center the image horizontally and add some bottom margin */
-}
-
-.service {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.service h3 {
-    margin-top: 0;
-    margin-bottom: 1px;
-}
-
-.service p {
-    margin-bottom: 10px;
-}
-
-.service .cta-button {
-    margin-top: 10px;
-}
-
-
-.about-image {
-    flex: 1;
-    animation: slideInLeft 1s ease forwards;
-}
-
-.about-text {
-    flex: 2;
-    animation: slideInRight 1s ease forwards;
-}
-
-@keyframes slideInLeft {
-    from {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-@keyframes slideInRight {
-    from {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-.service {
-    background-color: #0b0b0c; /* Black service background */
-    padding: 20px;
-    margin-bottom: 20px;
-    opacity: 0;
-    animation: fadeIn 1s ease forwards;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-#bgneeded {
-    background-color: #0b0b0c;
-}
-
-/* Contact form styling */
-.form-group {
-    margin-bottom: 20px;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-input[type="text"],
-input[type="email"],
-textarea {
-    width: 100%;
-    padding: 10px;
-    background-color: #0b0b0c;
-    border: 1px solid #00FF00; /* Green border */
-    border-radius: 5px;
-    color: #00FF00; /* Green text color */
-    box-sizing: border-box; /* Ensures padding is included in the total width */
-}
-
-input[type="text"]:focus,
-input[type="email"]:focus,
-textarea:focus {
-    outline: none; /* Remove default focus outline */
-    border-width: 2px; /* Increase border width when focused */
-    border-color: #66FF66; /* Brighter green border when focused */
-}
-
-textarea {
-    height: 150px; /* Adjust height for textarea */
-}
-
-button[type="submit"] {
-    width: 100%; /* Ensure the button takes the full width */
-    background-color: #00FF00;
-    color: #0b0b0c;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    box-sizing: border-box; /* Ensures padding is included in the total width */
-}
-
-button[type="submit"]:hover {
-    background-color: #007F00;
-}
-
-/* Media queries for responsiveness */
-@media (max-width: 768px) {
-    .container {
-        padding: 0 10px;
-        padding-top: 10px;
-        padding-bottom: 10px;
-    }
-
-    h2 {
-        font-size: 24px;
-    }
-
-    .social-icons img {
-        width: 40px; /* Adjust icon size */
-        height: 40px; /* Adjust icon size */
-    }
-
-    .form-group {
-        margin-bottom: 15px;
-    }
-
-    input[type="text"],
-    input[type="email"],
-    textarea {
-        padding: 8px;
-        font-size: 14px;
-    }
-
-    button[type="submit"] {
-        padding: 8px 0;
-        font-size: 16px;
-    }
-    .other-stores {
-        margin-top: 10px;
-    }
-    .store-icons img {
-        width: 40px;
-        height: 40px;
-    }
-}
-
-@media (max-width: 768px) {
-    .store-icons img {
-        width: 38px;
-        height: 38px;
-        margin-right: -5px;
-    }
-}
-
-@media (max-width: 480px) {
-    h2 {
-        font-size: 20px;
-    }
-
-    .social-icons img {
-        width: 35px; /* Adjust icon size */
-        height: 35px; /* Adjust icon size */
-    }
-
-    .form-group {
-        margin-bottom: 10px;
-    }
-
-    input[type="text"],
-    input[type="email"],
-    textarea {
-        padding: 6px;
-        font-size: 12px;
-    }
-
-    button[type="submit"] {
-        padding: 6px 0;
-        font-size: 14px;
-    }
-}
-
-/* Add styles for the matrix effect */
-.matrix-effect {
-    position: fixed;
-    top: 0; /* Position at the top of the screen */
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1; /* Ensure the matrix effect is behind other content */
-    pointer-events: none; /* Allow clicks to go through the matrix effect */
-    animation: matrixAnimation -1s linear infinite; /* Adjust animation duration as needed */
-}
-
-
-@keyframes matrixAnimation {
-    from {
-        transform: translateY(0%);
-    }
-    to {
-        transform: translateY(100%);
-    }
-}
-
-/* Your existing styles */
-/* Add other styles below */
-
-/* Media query for mobile view */
-@media only screen and (max-width: 768px) {
-    header .container {
-        text-align: center; /* Center align the header content */
-    }
-
-    nav ul {
-        display: inline-block; /* Keep the list items in a line */
-        margin-top: 10px; /* Add some space on top */
-    }
-
-    nav ul li {
-        display: inline-block; /* Keep the list items in a line */
-        margin: 0 10px; /* Add margin to separate list items */
-    }
-
-    header {
-        margin-top: 2px;
-    }
-}
-
-/*HEADER FONT SIZINHE FOR DIFFERENT SCREENS*/
-/* Font size for screens 768px and below */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 28px; /* Adjust the size as needed */
-    }
-}
-
-/* Font size for screens 365px and below */
-@media (max-width: 365px) {
-    header h1 {
-        font-size: 25px; /* Adjust the size as needed */
-    }
-}
-
-/* Font size for screens 325px and below */
-@media (max-width: 325px) {
-    header h1 {
-        font-size: 20px; /* Adjust the size as needed */
-    }
-}
-
-
-/* Media query for smaller screen devices */
-@media only screen and (max-width: 768px) {
-    /* Reduce list item spacing and font size */
-    nav ul {
-        margin-top: 5px; /* Reduced top margin */
-    }
-
-    nav ul li {
-        margin: 0 5px; /* Reduced horizontal margin */
-    }
-
-    nav ul li a {
-        font-size: 14px; /* Reduced font size */
-    }
-}
-
-.about-text {
-    flex: 2;
-    animation: slideInRight 1s ease forwards;
-    background-color: #0b0b0c; /* Black background color */
-    padding: 20px; /* Add padding for spacing */
-}
-
-/* Default font sizes for p, h2 and h3 tags */
-h2 {
-    font-size: 32px; /* Default font size for h2 */
-}
-
-h3 {
-    font-size: 24px; /* Default font size for h3 */
-}
-
-p {
-    font-size: 15px; /* Default font size */
-}
-
-/* Font sizes for screens 768px and below */
-@media (max-width: 768px) {
-    h2 {
-        font-size: 28px; /* Adjust the size as needed */
-    }
-    
-    h3 {
-        font-size: 20px; /* Adjust the size as needed */
-    }
-
-    p {
-        font-size: 14px; /* Adjust the size as needed */
-    }
-}
-/* Fade-in effect */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.fade-in {
-    animation: fadeIn 1s ease-out forwards;
-}
-
-@media (max-width: 768px) {
-    .cta-button {
-        width: 90%; /* Ensure the button takes up the full width on mobile */
-        padding: 10px; /* Adjust padding if needed */
-        justify-content: center;
-    }
-}
-
-
-/*Other Animations*/
-/* Animation Styles */
-.animate {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.6s ease;
-}
-
-.animate.in-view {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-
-/* Adjust CSS to trigger animation when element is visible */
-.animate-visible {
-    animation: scaleIn 0.5s forwards;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="assets/KJ Logo.png">
+    <title>Services - Karo Junior</title>
+    <meta name="description" content="Welcome to Karo Junior services page, where I offer a range of tailored solutions to elevate your digital presence. From website development and app development to graphic design and social media services, I am dedicated to delivering results that drive success. Explore our offerings and let us help you achieve your online goals today.">
+    <meta name="keywords" content="Karo Junior, karokarojunior, Website development, App development, Graphic design, Social media services, Digital marketing, UI/UX design, Logo design, Branding, SEO optimization, Content creation, Mobile app development, Game development, Responsive web design, E-commerce solutions, Online presence, Simple Start, Small Business Boost, Professional Presence, Logo Design, Brand Identity, Brochure Design, Business Card Design, Flyer Design, Poster Design, Infographic Design, Icon Design, Digital Design, Followers Increase, Likes Increase, Views Increase">
+    <meta name="author" content="Karo Junior">
+    <link rel="stylesheet" href="services.css">
+    <!-- Open Graph tags for better sharing on social media -->
+    <meta property="og:title" content="Services - Karo Junior">
+    <meta property="og:description" content="Discover tailored solutions to elevate your digital presence with Karo Junior's services.">
+    <meta property="og:image" content="assets/myaiigm.png">
+    <meta property="og:url" content="https://karojunior.pxxl.space/services.html">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card tags for better sharing on Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Services - Karo Junior">
+    <meta name="twitter:description" content="Discover tailored solutions to elevate your digital presence with Karo Junior's services.">
+    <meta name="twitter:image" content="assets/myaiigm.png">
+
+    <!-- Additional meta tags for SEO -->
+    <meta name="robots" content="index, follow">
+    <meta name="google-site-verification" content="your-google-site-verification-code">
+</head>
+<body>
+
+    <div>
+        <canvas class="matrix-effect" id=matrix />
+    </div>
+
+    <header>
+        <div class="container">
+            <h1>Karo Junior</h1>
+            <div class="mobile-menu-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <nav id="mobile-menu" class="mobile-menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="index.html#resources">Resources</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="services">
+        <section id="services-intro" class="intro-section">
+            <h1>Services Offered</h1>
+            <p>Welcome to my services page, where I offer a diverse range of solutions to elevate your digital presence and bring your vision to life. Whether you're seeking to establish a captivating online identity with website development, dive into the immersive world of game development, or enhance user engagement through bespoke app development, I'm here to guide you every step of the way. With a passion for creativity and a commitment to excellence, I specialize in graphic design services that transform ideas into captivating visuals and social media strategies that amplify your brand's reach and impact. Explore the possibilities and let's embark on a journey of digital innovation together.</p>
+        </section>
+
+        <section id="website-development" class="section">
+            <div class="service-card">
+                <h2>Website Development</h2>
+                <p>As a solo developer, I understand the significance of a captivating online presence in today's digital landscape. Your website serves as your digital storefront, and it's essential to make it stand out. Whether you're a budding entrepreneur, a small business owner, or an artist eager to showcase your work, my website development services are tailored to meet your specific needs and goals.</p>
+                <p>With a keen eye for detail and a passion for innovation, I collaborate closely with you at every step of the process to bring your vision to life. From concept to execution, I strive to deliver exceptional results that not only meet but exceed your expectations. As a solo developer, I take pride in providing personalized attention and expertise to each project, ensuring that your website reflects your unique identity and resonates with your target audience.</p>
+                <p>Choose from our range of packages below, carefully curated to cater to your various requirements. Whether you're looking for a simple yet elegant single-page website or a comprehensive multi-page platform, I have the perfect solution to help you achieve your online goals.</p>
+                <div class="packages">
+                    <div class="package-card animate">
+                        <img src="assets/webdev1.png" alt="Website Development Icon">
+                        <h3>Simple Start</h3>
+                        <p>Launch your online presence with a single-page website ideal for small businesses, freelancers, or individuals on a budget. Featuring a clean design, mobile responsiveness, and essential features, it’s perfect for establishing your online footprint efficiently.</p>
+                        <a href="https://wa.me/2347085858036?text=Hello%20Karo%20Junior,%20I'm%20interested%20in%20your%20Simple%20Start%20website%20development%20package.%20Can%20we%20discuss%20further%3F" class="cta-button">Get Started</a>
+                    </div>
+                    <div class="package-card animate">
+                        <img src="assets/webdev2.png" alt="Website Development Icon">
+                        <h3>Small Business Boost</h3>
+                        <p>Propel your business forward with a 2 page website tailored for small businesses, startups, or solopreneurs. Offering a custom design, mobile responsiveness, and additional features, it provides the space needed to showcase services, portfolios, or products effectively.</p>
+                        <a href="https://wa.me/2347085858036?text=Hello%20Karo%20Junior,%20I'm%20interested%20in%20your%20Small%20Business%20Boost%20website%20development%20package.%20Can%20we%20discuss%20further%3F" class="cta-button">Get Started</a>
+                    </div>
+                    <div class="package-card animate">
+                        <img src="assets/webdev3.png" alt="Website Development Icon">
+                        <h3>Professional Presence</h3>
+                        <p>Build a robust online presence with a comprehensive website highlighting your brand, products, and services. Tailored for growing businesses or organizations, it includes a custom design, mobile responsiveness, advanced features, and expert development to meet your evolving needs.</p>
+                        <a href="https://wa.me/2347085858036?text=Hello%20Karo%20Junior,%20I'm%20interested%20in%20your%20Professional%20Presence%20website%20development%20package.%20Can%20we%20discuss%20further%3F" class="cta-button">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="app-development" class="section">
+            <div class="service-card">
+                <h2>App Development</h2>
+                <p>Embark on a journey of digital innovation with our bespoke app development services, tailored to meet your specific needs and objectives. As a solo developer, I specialize in crafting elegant Android applications that seamlessly blend functionality with style, providing users with an exceptional mobile experience.</p>
+                <p>From productivity tools to lifestyle apps, each app is meticulously designed and developed to reflect your brand identity and cater to your target audience. With a deep understanding of the Android platform and its intricacies, I leverage the latest technologies and design principles to create apps that not only meet but exceed your expectations.</p>
+                <p>Ready to transform your app idea into reality? Let's collaborate to create something extraordinary that resonates with users and makes a lasting impact in the digital sphere!</p>
+                <a href="https://wa.me/2347085858036?text=Hello%20Karo%20Junior,%20I%20am%20interested%20in%20your%20app%20development%20services.%20Can%20we%20discuss%20further%3F" class="cta-button">Get Started</a>
+            </div>
+        </section>
+
+        <section id="game-development" class="section">
+            <div class="service-card">
+                <h2>Game Development</h2>
+                <p>Enter a world of limitless creativity and immersive storytelling with our expert game development services. As a solo developer, I specialize in crafting captivating 2D games for PC and mobile platforms, delivering experiences that captivate and engage players of all ages.</p>
+                <p>From action-packed adventures to mind-bending puzzles, each game is meticulously designed and developed to transport players to new worlds and ignite their imaginations. With a keen eye for detail and a passion for innovation, I ensure that every aspect of your game, from artwork to gameplay mechanics, is polished to perfection.</p>
+                <p>Ready to embark on an unforgettable gaming journey? Let's work together to turn your ideas into reality and create a game that stands out in a crowded market!</p>
+                <a href="https://wa.me/2347085858036?text=Hello%20Karo%20Junior,%20I%20am%20interested%20in%20your%20game%20development%20services.%20Can%20we%20discuss%20further%3F" class="cta-button">Get Started</a>
+            </div>
+        </section>
+
+        <section id="graphic-design" class="section">
+            <div class="service-card">
+                <h2>Graphic Design</h2>
+                <p>Dive into the world of visual storytelling with our comprehensive graphic design services, meticulously crafted to elevate your brand and captivate your audience. As a solo developer, I understand the importance of making every design element count, and I'm committed to creating visuals that leave a lasting impression.</p>
+                <p>Whether you're in need of eye-catching business posters that command attention, elegantly crafted resumes and business cards that showcase your professionalism, or beautifully designed certificates that commemorate special achievements, I am here to bring your vision to life.</p>
+                <p>Choose from our range of packages below tailored to suit your specific needs and objectives.</p>
+                <div class="packages">
+                    <div class="package-card animate">
+                        <img src="assets/logo.png" alt="Logo Design Icon">
+                        <h3>Logo Design</h3>
+                        <p>Craft a memorable visual identity with our professional logo design service.</p>
+                        <a href="https://wa.me/2347085858036?text=Hello%20Karo%20Junior,%20I'm%20interested%20in%20your%20Logo%20Design%20service.%20Can%20we%20discuss%20further%3F" class="cta-button">Get Started</a>
+                    </div>
+                    <div class="package-card animate">
+                        <img src="assets/brand.png" alt="Brand Identity Icon">
+                        <h3>Brand Identity</h3>
+                        <p>Establish a cohesive brand identity with our comprehensive brand identity design solutions.</p>
+                        <a href="https://wa.me/2347085858036?text=Hello%20Karo%20Junior,%20I'm%20interested%20in%20your%20Brand%20Identity%20service.%20Can%20we%20discuss%20further%3F" class="cta-button">Get Started</a>
+                    </div>
+                    <div class="package-card animate">
+                        <img src="assets/brochure.png" alt="Brochure Design Icon">
+                        <h3>Brochure Design</h3>
+                        <p>Captivate your audience with stunning brochure designs that showcase your products or services.</p>
+                        <a href="https://wa.me/2347085858036?text=Hello%20Karo%20Junior,%20I'm%20interested%20in%20your%20Brochure%20Design%20service.%20Can%20we%20discuss%20further%3F" class="cta-button">Get Started</a>
+                    </div>
+                    <div class="package-card animate">
+                        <img src="assets/businesscard.png" alt="Business Card Design Icon">
+                        <h3>Business Card Design</h3>
+                        <p>Make a lasting impression with custom-designed business cards that reflect your professionalism.</p>
+                        <a href="https://wa.me/2347085858036?text=Hello%20Karo%20Junior,%20I'm%20interested%20in%20your%20Business%20Card%20Design%20service.%20Can%20we%20discuss%20further%3F" class="cta-button">Get Started</a>
+                    </div>
+                    <div class="package-card animate">
+                        <img src="assets/flyer.png" alt="Flyer Design Icon">
+                        <h3>Flyer Design</h3>
+                        <p>Promote your events or offerings effectively with eye-catching flyer designs.</p>
+                        <a href="https://wa.me/2347085858036?text=Hello%20Karo%20Junior,%20I'm%20interested%20in%20your%20Flyer%20Design%20service.%20Can%20we%20discuss%20further%3F" class="cta-button">Get Started</a>
+                    </div>
+                    <div class="package-card animate">
+                        <img src="assets/poster.png" alt="Poster Design Icon">
+                        <h3>Poster Design</h3>
+                        <p>Command attention and convey your message effectively with impactful poster designs.</p>
+                        <a href="https://wa.me/2347085858036?text=Hello%20Karo%20Junior,%20I'm%20interested%20in%20your%20Poster%20Design%20service.%20Can%20we%20discuss%20further%3F" class="cta-button">Get Started</a>
+                    </div>
+                    <div class="package-card animate">
+                        <img src="assets/infographic.png" alt="Infographic Design Icon">
+                        <h3>Infographic Design</h3>
+                        <p>Present complex information visually with engaging and informative infographic designs.</p>
+                        <a href="https://wa.me/2347085858036?text=Hello%20Karo%20Junior,%20I'm%20interested%20in%20your%20Infographic%20Design%20service.%20Can%20we%20discuss%20further%3F" class="cta-button">Get Started</a>
+                    </div>
+                    <div class="package-card animate">
+                        <img src="assets/icon.png" alt="Icon Design Icon">
+                        <h3>Icon Design</h3>
+                        <p>Enhance your digital presence with custom icon designs tailored to your brand and style.</p>
+                        <a href="https://wa.me/2347085858036?text=Hello%20Karo%20Junior,%20I'm%20interested%20in%20your%20Icon%20Design%20service.%20Can%20we%20discuss%20further%3F" class="cta-button">Get Started</a>
+                    </div>
+                    <div class="package-card animate">
+                        <img src="assets/digitaldesign.png" alt="Digital Design Icon">
+                        <h3>Digital Design</h3>
+                        <p>Elevate your online presence with bespoke digital designs that stand out in the digital landscape.</p>
+                        <a href="https://wa.me/2347085858036?text=Hello%20Karo%20Junior,%20I'm%20interested%20in%20your%20Digital%20Design%20service.%20Can%20we%20discuss%20further%3F" class="cta-button">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="social-media-services" class="section">
+            <div class="service-card">
+                <h2>Social Media Services</h2>
+                <p>Transform your online presence and engage with your audience like never before with our tailored social media services, designed to help you navigate the digital landscape with confidence and expertise. As a solo developer, I understand the challenges of building and maintaining a strong social media presence, and I'm here to guide you every step of the way.</p>
+                <p>Choose from our range of packages below to suit your specific needs and objectives.</p>
+                <div class="packages">
+                    <div class="package-card animate">
+                        <img src="assets/followers.png" alt="Followers Icon">
+                        <h3>Followers Increase</h3>
+                        <p>Boost your online presence with our Followers Increase service, designed to help you grow a genuine and engaged audience across your social media platforms.</p>
+                        <a href="https://wa.me/2347085858036?text=Hello%20Karo%20Junior,%20I'm%20interested%20in%20increasing%20my%20followers%20on%20social%20media.%20Can%20we%20discuss%20further%3F" class="cta-button">Get Started</a>
+                    </div>
+                    <div class="package-card animate">
+                        <img src="assets/likes.png" alt="Likes Icon">
+                        <h3>Likes Increase</h3>
+                        <p>Enhance the visibility of your posts with our Likes Increase service, ensuring that your content receives the attention and engagement it deserves.</p>
+                        <a href="https://wa.me/2347085858036?text=Hello%20Karo%20Junior,%20I'm%20interested%20in%20increasing%20likes%20on%20my%20social%20media%20posts.%20Can%20we%20discuss%20further%3F" class="cta-button">Get Started</a>
+                    </div>
+                    <div class="package-card animate">
+                        <img src="assets/views.png" alt="Views Design Icon">
+                        <h3>Views Increase</h3>
+                        <p>Expand your reach and impact with our Views Increase service, tailored to maximize the number of views on your videos and visual content, driving more engagement and awareness.</p>
+                        <a href="https://wa.me/2347085858036?text=Hello%20Karo%20Junior,%20I'm%20interested%20in%20increasing%20views%20on%20my%20social%20media%20content.%20Can%20we%20discuss%20further%3F" class="cta-button">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="other-services" class="section">
+            <div class="service-card">
+                <h2>Other Services</h2>
+                <p>In addition to our core offerings, I also provide a variety of other services to cater to your diverse needs. As a solo developer, I am adept at adapting to different challenges and opportunities in the digital realm. Whether you require technical consulting, digital marketing strategies, or UI/UX design expertise, I have the skills and knowledge to assist you. Let's discuss how I can help you achieve your goals beyond website development. Your success is my priority, and I'm here to support you every step of the way.</p>
+                <a href="https://wa.me/2347085858036?text=Hello%20Karo%20Junior,%20do%20you%20do%20.......%3F" class="cta-button">Get Started</a>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Karo Junior</p>
+            <div class="social-icons animate">
+                <a href="https://www.instagram.com/karokarojunior" target="_blank"><img src="assets/instagram.svg" alt="Instagram"></a>
+                <a href="https://www.facebook.com/100087201591247" target="_blank"><img src="assets/facebook.png" alt="Facebook"></a>
+                <a href="https://upwork.com/freelancers/~014aba92a28acf10e1?mp_source=share" target="_blank"><img src="assets/upwork.png" alt="Upwork"></a>
+                <a href="https://www.linkedin.com/in/therealkarojunior" target="_blank"><img src="assets/linkedin.svg" alt="LinkedIn"></a>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
